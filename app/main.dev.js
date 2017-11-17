@@ -11,17 +11,17 @@
  * @flow
  */
 import { app, BrowserWindow, ipcMain, TouchBar } from 'electron';
-import MenuBuilder from './menu';
 import path from 'path';
 import url from 'url';
 import { autoUpdater } from 'electron-updater';
 import Log from 'electron-log';
 import Raven from 'raven-js';
+import sourceMapSupport from 'source-map-support';
+import MenuBuilder from './menu';
 
+let mainWindow: ?BrowserWindow = null;
 
-let mainWindow: ? BrowserWindow = null;
-
-const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar;
+const { TouchBarButton, TouchBarSpacer } = TouchBar;
 
 // Reel labels
 const TopicButton = new TouchBarButton({
@@ -62,11 +62,10 @@ ipcMain.removeAllListeners('ELECTRON_BROWSER_WINDOW_ALERT');
 ipcMain.on('ELECTRON_BROWSER_WINDOW_ALERT', (event, message, title) => {
   console.warn(`[Alert] ** ${title} ** ${message}`);
   Raven.captureException(message);
-  event.returnValue = 0; // **IMPORTANT!**
+  // event.returnValue = 0; // **IMPORTANT!**
 });
 
 if (process.env.NODE_ENV === 'production') {
-  const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
   Raven.config('https://111b51b49ee14feebcaada87b65b17eb@sentry.gemer.xyz/2')
     .install();
@@ -74,7 +73,6 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
   require('electron-debug')();
-  const path = require('path');
   const p = path.join(__dirname, '..', 'app', 'node_modules');
   require('module').globalPaths.push(p);
 }
@@ -166,7 +164,7 @@ const createWindow = () => {
 
     // autoUpdater.checkForUpdates()
   }
-  if (process.platform == 'win32') {
+  if (process.platform === 'win32') {
     mainWindow.setMenu(null);
   }
 };
@@ -240,16 +238,21 @@ autoUpdater.on('checking-for-update', () => {
 });
 autoUpdater.on('update-available', (ev, info) => {
   sendStatusToWindow('Update available.');
+  console.log(ev, info);
 });
 autoUpdater.on('update-not-available', (ev, info) => {
   sendStatusToWindow('Update not available.');
+  console.log(ev, info);
 });
 autoUpdater.on('error', (ev, err) => {
   sendStatusToWindow('Error in auto-updater.');
+  console.log(ev, err);
 });
 autoUpdater.on('download-progress', (ev, progressObj) => {
   sendStatusToWindow('Download progress...');
+  console.log(ev, progressObj);
 });
 autoUpdater.on('update-downloaded', (ev, info) => {
   sendStatusToWindow('Update downloaded; will install in 5 seconds');
+  console.log(ev, info);
 });

@@ -36,6 +36,8 @@ const initialState: TechStateType = {
 };
 
 export default function tech(state: TechStateType = initialState, action: actionType) {
+  const Collection = [];
+  const MoreCollection = state.collection;
   switch (action.type) {
     // init list
     case GET_TECH_INIT_REQUEST:
@@ -45,14 +47,16 @@ export default function tech(state: TechStateType = initialState, action: action
       };
 
     case GET_TECH_INIT_SUCCESS:
-      const Collection = [];
-      action.payload.collection.map((item, key) => Collection.push(item));
+      action.payload.collection.map((item) => Collection.push(item));
       return {
         ...state,
         collection: Collection,
         loading: action.payload.loading
       };
-
+    case GET_TECH_INIT_FAILURE:
+      return {
+        ...state
+      };
     // more list
     case GET_TECH_MORE_REQUEST:
       return {
@@ -60,12 +64,15 @@ export default function tech(state: TechStateType = initialState, action: action
         moreLoading: action.payload.moreLoading
       };
     case GET_TECH_MORE_SUCCESS:
-      const MoreCollection = state.collection;
-      action.payload.collection.map((item, key) => MoreCollection.push(item));
+      action.payload.collection.map((item) => MoreCollection.push(item));
       return {
         ...state,
         collection: MoreCollection,
         moreLoading: action.payload.moreLoading
+      };
+    case GET_TECH_MORE_FAILURE:
+      return {
+        ...state
       };
     case SET_TECH_LAST_CURSOR:
       return {

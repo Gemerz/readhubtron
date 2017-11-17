@@ -36,6 +36,9 @@ const initialState: NewsStateType = {
 };
 
 export default function topic(state: NewsStateType = initialState, action: actionType) {
+  const Collection = [];
+  const MoreCollection = state.collection;
+
   switch (action.type) {
     // init list
     case GET_NEWS_INIT_REQUEST:
@@ -45,14 +48,16 @@ export default function topic(state: NewsStateType = initialState, action: actio
       };
 
     case GET_NEWS_INIT_SUCCESS:
-      const Collection = [];
-      action.payload.collection.map((item, key) => Collection.push(item));
+      action.payload.collection.map((item) => Collection.push(item));
       return {
         ...state,
         collection: Collection,
         loading: action.payload.loading
       };
-
+    case GET_NEWS_INIT_FAILURE:
+      return {
+        ...state
+      };
     // more list
     case GET_NEWS_MORE_REQUEST:
       return {
@@ -60,12 +65,16 @@ export default function topic(state: NewsStateType = initialState, action: actio
         moreLoading: action.payload.moreLoading
       };
     case GET_NEWS_MORE_SUCCESS:
-      const MoreCollection = state.collection;
-      action.payload.collection.map((item, key) => MoreCollection.push(item));
+
+      action.payload.collection.map((item) => MoreCollection.push(item));
       return {
         ...state,
         collection: MoreCollection,
         moreLoading: action.payload.moreLoading
+      };
+    case GET_NEWS_MORE_FAILURE:
+      return {
+        ...state
       };
     case SET_NEWS_LAST_CURSOR:
       return {

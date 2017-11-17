@@ -12,7 +12,7 @@ class SideBarNav extends Component {
   state = {}
 
   render() {
-    const { dispatch } = this.props;
+    const { dispatch }: viod = this.props;
     const currentTabName = this.props.router.location.pathname.split('/').pop().trim();
     // if (currentTabName.length == 0) {
     //   currentTabName = 'topic'

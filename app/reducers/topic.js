@@ -39,6 +39,8 @@ const initialState: TopicStateType = {
 };
 
 export default function topic(state: TopicStateType = initialState, action: actionType) {
+  const Collection = [];
+  const MoreCollection = state.collection;
   switch (action.type) {
     // init list
     case GET_TOPIC_INIT_REQUEST:
@@ -47,7 +49,6 @@ export default function topic(state: TopicStateType = initialState, action: acti
         loading: action.payload.loading
       };
     case GET_TOPIC_INIT_SUCCESS:
-      const Collection = [];
       action.payload.collection.map((item) => Collection.push(item));
       return {
         ...state,
@@ -65,7 +66,6 @@ export default function topic(state: TopicStateType = initialState, action: acti
         moreLoading: action.payload.moreLoading
       };
     case GET_TOPIC_MORE_SUCCESS:
-      const MoreCollection = state.collection;
       action.payload.collection.map((item) => MoreCollection.push(item));
       return {
         ...state,

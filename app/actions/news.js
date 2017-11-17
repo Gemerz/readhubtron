@@ -1,6 +1,7 @@
 // @flow
 import Moment from 'moment';
 import { checkHttpStatus, parseJSON } from '../utils';
+import { throws } from 'assert';
 
 type actionType = {
   type: string,
@@ -74,7 +75,7 @@ export function checkNewsLatest(count: number) {
 
 
 export function initNews() {
-  return (dispatch: (action: actionType) => void, getState: () => NewsStateType) => {
+  return (dispatch: (action: actionType) => void) => {
     const API = `https://api.readhub.me/news?&pageSize=10&lastCursor=${Moment().valueOf()}`;
     dispatch(getNewsRequest());
     fetch(API, {
@@ -93,6 +94,8 @@ export function initNews() {
           dispatch(setNewslastCursor(lastCursor));
           dispatch(setNewsCurrentUrl(response.data[0].url));
         }
+      }).catch((error) => {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   };
 }
@@ -115,12 +118,14 @@ export function loadMoreNews() {
         .then(parseJSON)
         .then(response => {
           dispatch(getNewsMoreSuccess(response.data));
+        }).catch((error) => {
+          console.log('There has been a problem with your fetch operation: ' + error.message);
         });
     }, 500);
   };
 }
 export function fetchLatestCollection(lastCursor: number) {
-  return (dispatch: (action: actionType) => void, getState: () => NewsStateType) => {
+  return (dispatch: (action: actionType) => void) => {
     const API = ` https://api.readhub.me/topic/newCount?latestCursor=${lastCursor}`;
     fetch(API, {
       method: 'get',
@@ -132,6 +137,8 @@ export function fetchLatestCollection(lastCursor: number) {
       .then(parseJSON)
       .then(response => {
         dispatch(checkNewsLatest(response.count));
+      }).catch((error) => {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   };
 }

@@ -9,7 +9,6 @@ import {
   SET_DISABLED_JAVASCRIPT
 } from '../actions/setting.js';
 
-
 const localstorage = window.localStorage.getItem('reduxPersist:setting');
 
 const localStore = JSON.parse(localstorage);
@@ -47,6 +46,7 @@ const initialState: SettingStateType = {
 
 
 export default function topic(state: SettingStateType = initialState, action: actionType) {
+  const incoming = action.payload.myReducer;
   switch (action.type) {
     // init list
     case SET_SIMPLE_LIST_MODE:
@@ -75,8 +75,6 @@ export default function topic(state: SettingStateType = initialState, action: ac
         disabledJavascript: action.payload.disabledJavascript
       };
     case REHYDRATE:
-      var incoming = action.payload.myReducer;
-      // if (incoming) return { ...state, ...incoming, specialKey: processSpecial(incoming.specialKey) };
       return { ...state, ...incoming };
     default:
       return state;
