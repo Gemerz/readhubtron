@@ -64,7 +64,7 @@ class SettingPage extends Component {
                   <Switch
                     checked={this.props.setting.moblieFirst}
                     onChange={() => {
-                      this.props.switchMoblieFirstMode(!this.props.setting.moblieFirst)
+                      this.props.switchMoblieFirstMode(!this.props.setting.moblieFirst);
                     }}
                   />
                 }
@@ -75,7 +75,7 @@ class SettingPage extends Component {
                   <Switch
                     checked={this.props.setting.disabledJavascript}
                     onChange={() => {
-                      this.props.switchDisabledJavascript(!this.props.setting.disabledJavascript)
+                      this.props.switchDisabledJavascript(!this.props.setting.disabledJavascript);
                     }}
                   />
                 }

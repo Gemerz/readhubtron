@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 // import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { push } from 'react-router-redux';
 import { ipcRenderer } from 'electron';
 import Fire from '../../resources/icons8-sales_channels.png';
@@ -13,7 +14,8 @@ class SideBarNav extends Component {
 
   render() {
     const { dispatch }: viod = this.props;
-    const currentTabName = this.props.router.location.pathname.split('/').pop().trim();
+    const currentTabNamePath = this.props.router.location.pathname;
+    const currentTabName = currentTabNamePath.split('/').pop().trim();
     // if (currentTabName.length == 0) {
     //   currentTabName = 'topic'
     // }
@@ -30,22 +32,33 @@ class SideBarNav extends Component {
     });
     return (
       <div className="sidebar">
-        <nav className="">
-          <a className={`item ${(currentTabName === 'topic' || currentTabName.length === 0) ? 'current' : ''}`} onClick={() => { dispatch(push('/topic')); }}>
+        <nav>
+          <a
+            role="presentation"
+            className={`item ${(currentTabName === 'topic' || currentTabName.length === 0) ? 'current' : ''}`}
+            onClick={() => { dispatch(push('/topic')); }}
+          >
             <IconButton color="contrast" aria-label="refresh">
               <img src={Fire} alt="Fire" />
             </IconButton>
             <span className="nav-label">热门话题</span>
           </a>
-
-          <a className={`item ${currentTabName === 'news' ? 'current' : ''}`} onClick={() => { dispatch(push('/news')); }}>
+          <a
+            role="presentation"
+            className={`item ${currentTabName === 'news' ? 'current' : ''}`}
+            onClick={() => { dispatch(push('/news')); }}
+          >
             <IconButton color="contrast" aria-label="refresh">
               <img src={Trend} alt="Trend" />
             </IconButton>
             <span className="nav-label">科技动态</span>
           </a>
 
-          <a className={`item ${currentTabName === 'tech' ? 'current' : ''}`} onClick={() => { dispatch(push('/tech')); }}>
+          <a
+            role="presentation"
+            className={`item ${currentTabName === 'tech' ? 'current' : ''}`}
+            onClick={() => { dispatch(push('/tech')); }}
+          >
             <IconButton color="contrast" aria-label="refresh">
               <img src={Developer} alt="Developer" />
             </IconButton>
@@ -66,10 +79,15 @@ function mapStateToProps(state) {
   };
 }
 
-// function mapDispatchToProps(dispatch) {
+SideBarNav.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  router: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string
+    })
+  }).isRequired
 
-//     return bindActionCreators(TopicActions, dispatch);
-// }
+};
 
 export default connect(mapStateToProps, null)(SideBarNav);
 

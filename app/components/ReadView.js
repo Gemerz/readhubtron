@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { LinearProgress } from 'material-ui/Progress';
 import WebView from 'react-electron-web-view';
 import IconButton from 'material-ui/IconButton';
-import SendIcon from 'material-ui-icons/Send';
 import ComputerIcon from 'material-ui-icons/Computer';
 import CollectionsIcon from 'material-ui-icons/Collections';
-import Dialog, { DialogTitle } from 'material-ui/Dialog';
+import Dialog from 'material-ui/Dialog';
 import List, { ListItem, ListItemAvatar, ListItemText } from 'material-ui/List';
 import Slide from 'material-ui/transitions/Slide';
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import { ipcRenderer } from 'electron';
@@ -54,7 +54,7 @@ export default class ReadView extends Component {
         </div>
 
 
-        ));
+      ));
     }
   }
 
@@ -89,7 +89,7 @@ export default class ReadView extends Component {
           </div>
           <div className={styles.views} data-tid="views">
             <WebView
-              ref="webview"
+              ref={(c) => { this.webView = c; }}
               className="readWebview"
               nodeintegration
               autosize
@@ -99,12 +99,12 @@ export default class ReadView extends Component {
               onDomReady={() => {
                 console.log('done');
                 this.setState({ WebViewLoading: false });
-                this.refs.webview.insertCSS(insertCss);
+                this.webView.insertCSS(insertCss);
               }}
               onDidStartLoading={() => {
                 console.log('loading');
                 this.setState({ WebViewLoading: true });
-                this.refs.webview.insertCSS(insertCss);
+                this.webView.insertCSS(insertCss);
               }}
               onDidStopLoading={() => {
                 console.log('stoploading');
@@ -130,3 +130,8 @@ export default class ReadView extends Component {
 
 
 }
+ReadView.propTypes = {
+  totalUrls: PropTypes.string.isRequired,
+  currentUrl: PropTypes.string.isRequired,
+  disabledJavascript: PropTypes.bool.isRequired,
+};

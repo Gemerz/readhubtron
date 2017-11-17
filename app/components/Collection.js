@@ -17,18 +17,18 @@ export default class Collection extends Component {
   }
 
   get getClientHeight() {
-    return this.refs.scrollbars.getClientHeight();
+    return this.scrollBars.getClientHeight();
   }
   get getScrollTop() {
-    return this.refs.scrollbars.getScrollTop();
+    return this.scrollBars.getScrollTop();
   }
   get getScrollHeight() {
-    return this.refs.scrollbars.getScrollHeight();
+    return this.scrollBars.getScrollHeight();
   }
   handlerRefresh() {
     this.props.initList();
     this.props.fetchLatestCollection(this.props.lastCursor);
-    this.refs.scrollbars.scrollToTop();
+    this.scrollBars.scrollToTop();
   }
   renderNewCollection() {
     return this.props.collection.map((item, key) => {
@@ -99,7 +99,8 @@ export default class Collection extends Component {
         <div className={styles.list} data-tid="list">
           <div className={styles.collection} data-tid="collection" >
             <Scrollbars
-              ref="scrollbars"
+
+              ref={(c) => { this.scrollBars = c; }}
               autoHide
               style={{ width: 280 }}
               onScroll={(e) => {

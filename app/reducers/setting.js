@@ -1,5 +1,5 @@
 // @flow
-import { REHYDRATE } from 'redux-persist/constants';
+// import { REHYDRATE } from 'redux-persist/constants';
 import Log from 'electron-log';
 import {
   SET_SIMPLE_LIST_MODE,
