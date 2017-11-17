@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as NewsActions from '../actions/news';
 import ReadView from '../components/ReadView';
 import Collection from '../components/Collection';
@@ -56,4 +56,23 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(NewsActions, dispatch);
 }
 
+NewsPage.propTypes = {
+  initNews: PropTypes.func.isRequired,
+  fetchLatestCollection: PropTypes.func.isRequired,
+  loadMoreNews: PropTypes.func.isRequired,
+  setNewsCurrentUrl: PropTypes.func.isRequired,
+  setting: PropTypes.shape({
+    disabledJavascript: PropTypes.bool.isRequired
+  }).isRequired,
+  news: PropTypes.shape({
+    lastCursor: PropTypes.string,
+    count: PropTypes.number,
+    category: PropTypes.string,
+    collection: PropTypes.object,
+    loading: PropTypes.bool,
+    moreLoading: PropTypes.bool,
+    totalUrls: PropTypes.string,
+    currentUrl: PropTypes.string
+  }).isRequired
+};
 export default connect(mapStateToProps, mapDispatchToProps)(NewsPage);

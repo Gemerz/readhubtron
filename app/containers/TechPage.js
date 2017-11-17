@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as TechActions from '../actions/tech';
 import ReadView from '../components/ReadView';
 import Collection from '../components/Collection';
@@ -54,5 +54,23 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(TechActions, dispatch);
 }
-
+TechPage.propTypes = {
+  initTech: PropTypes.func.isRequired,
+  fetchLatestCollection: PropTypes.func.isRequired,
+  loadMoreTech: PropTypes.func.isRequired,
+  setTechCurrentUrl: PropTypes.func.isRequired,
+  setting: PropTypes.shape({
+    disabledJavascript: PropTypes.bool.isRequired
+  }).isRequired,
+  tech: PropTypes.shape({
+    lastCursor: PropTypes.string,
+    count: PropTypes.number,
+    category: PropTypes.string,
+    collection: PropTypes.object,
+    loading: PropTypes.bool,
+    moreLoading: PropTypes.bool,
+    totalUrls: PropTypes.string,
+    currentUrl: PropTypes.string
+  }).isRequired
+};
 export default connect(mapStateToProps, mapDispatchToProps)(TechPage);

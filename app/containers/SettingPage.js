@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import BodyClassName from 'react-body-classname';
 import Switch from 'material-ui/Switch';
 import { ipcRenderer } from 'electron';
@@ -41,7 +41,7 @@ class SettingPage extends Component {
                 control={
                   <Switch
                     checked={this.props.setting.simpleMode}
-                    onChange={(event, checked) => this.props.switchSimpleMode(!this.props.setting.simpleMode)}
+                    onChange={() => this.props.switchSimpleMode(!this.props.setting.simpleMode)}
                   />
                 }
                 label="简洁模式"
@@ -50,7 +50,10 @@ class SettingPage extends Component {
                 control={
                   <Switch
                     checked={this.props.setting.notificationMode}
-                    onChange={(event, checked) => this.props.switchNotificationMode(!this.props.setting.notificationMode)}
+                    onChange={
+                      () => {
+                        this.props.switchNotificationMode(!this.props.setting.notificationMode);
+                      }}
                     label="开启通知模式"
                   />
                 }
@@ -60,7 +63,9 @@ class SettingPage extends Component {
                 control={
                   <Switch
                     checked={this.props.setting.moblieFirst}
-                    onChange={(event, checked) => this.props.switchMoblieFirstMode(!this.props.setting.moblieFirst)}
+                    onChange={() => {
+                      this.props.switchMoblieFirstMode(!this.props.setting.moblieFirst)
+                    }}
                   />
                 }
                 label="优先使用Mobile页面"
@@ -69,20 +74,14 @@ class SettingPage extends Component {
                 control={
                   <Switch
                     checked={this.props.setting.disabledJavascript}
-                    onChange={(event, checked) => this.props.switchDisabledJavascript(!this.props.setting.disabledJavascript)}
+                    onChange={() => {
+                      this.props.switchDisabledJavascript(!this.props.setting.disabledJavascript)
+                    }}
                   />
                 }
                 label="禁止页面运用javascript"
               />
             </FormGroup>
-
-
-            {/* <Switch
-              checked={this.props.setting.nightViwMode}
-              onChange={(event, checked) => this.props.switchNightViwMode(!this.props.setting.nightViwMode)}
-              label="夜间模式"
-            /> */}
-
           </div>
         </div>
       </BodyClassName>
@@ -99,5 +98,17 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(SettingActions, dispatch);
 }
+SettingPage.propTypes = {
+  switchSimpleMode: PropTypes.func.isRequired,
+  switchNotificationMode: PropTypes.func.isRequired,
+  switchMoblieFirstMode: PropTypes.func.isRequired,
+  switchDisabledJavascript: PropTypes.func.isRequired,
+  setting: PropTypes.shape({
+    simpleMode: PropTypes.bool,
+    notificationMode: PropTypes.bool,
+    moblieFirst: PropTypes.bool,
+    disabledJavascript: PropTypes.bool
+  }).isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingPage);

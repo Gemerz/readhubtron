@@ -94,8 +94,6 @@ export function initNews() {
           dispatch(setNewslastCursor(lastCursor));
           dispatch(setNewsCurrentUrl(response.data[0].url));
         }
-      }).catch((error) => {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   };
 }
@@ -118,8 +116,6 @@ export function loadMoreNews() {
         .then(parseJSON)
         .then(response => {
           dispatch(getNewsMoreSuccess(response.data));
-        }).catch((error) => {
-          console.log('There has been a problem with your fetch operation: ' + error.message);
         });
     }, 500);
   };
@@ -137,8 +133,6 @@ export function fetchLatestCollection(lastCursor: number) {
       .then(parseJSON)
       .then(response => {
         dispatch(checkNewsLatest(response.count));
-      }).catch((error) => {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
       });
   };
 }

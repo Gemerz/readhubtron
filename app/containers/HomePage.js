@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as TopicActions from '../actions/topic';
 import ReadView from '../components/ReadView';
 import Collection from '../components/Collection';
@@ -71,5 +72,24 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(TopicActions, dispatch);
 }
-
+HomePage.propTypes = {
+  initTopic: PropTypes.func.isRequired,
+  fetchLatestCollection: PropTypes.func.isRequired,
+  setTopicCurrentUrl: PropTypes.func.isRequired,
+  setTopicTotalUrls: PropTypes.func.isRequired,
+  loadMoreTopic: PropTypes.func.isRequired,
+  setting: PropTypes.shape({
+    disabledJavascript: PropTypes.bool.isRequired
+  }).isRequired,
+  topic: PropTypes.shape({
+    lastCursor: PropTypes.string,
+    count: PropTypes.number,
+    category: PropTypes.string,
+    collection: PropTypes.object,
+    loading: PropTypes.bool,
+    moreLoading: PropTypes.bool,
+    totalUrls: PropTypes.string,
+    currentUrl: PropTypes.string
+  }).isRequired
+};
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
