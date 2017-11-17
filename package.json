@@ -221,7 +221,7 @@
     "source-map-support": "^0.4.15"
   },
   "devEngines": {
-    "node": ">=6.x",
+    "node": ">=7.x",
     "npm": ">=3.x",
     "yarn": ">=0.21.3"
   }
