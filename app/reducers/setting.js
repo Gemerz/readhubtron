@@ -7,7 +7,7 @@ import {
   SET_NOTIFACATION,
   SET_NIGNTVIEW_MODE,
   SET_DISABLED_JAVASCRIPT
-} from '../actions/setting.js';
+} from '../actions/setting';
 
 const localstorage = window.localStorage.getItem('reduxPersist:setting');
 

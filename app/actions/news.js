@@ -1,7 +1,6 @@
 // @flow
 import Moment from 'moment';
 import { checkHttpStatus, parseJSON } from '../utils';
-import { throws } from 'assert';
 
 type actionType = {
   type: string,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Divider from 'material-ui/Divider';
 import List, { ListItem, ListItemText } from 'material-ui/List';
@@ -6,6 +7,8 @@ import Moment from 'moment';
 import { CircularProgress } from 'material-ui/Progress';
 import { IconButton, Badge } from 'material-ui';
 
+import 'material-ui/Form/FormHelperText';
+import 'material-ui/colors/lightBlue';
 import styles from './Collection.css';
 
 Moment.locale('zh-CN');
@@ -31,30 +34,36 @@ export default class Collection extends Component {
     this.scrollBars.scrollToTop();
   }
   renderNewCollection() {
-    return this.props.collection.map((item, key) => {
+    const { collection, setting } = this.props;
+    return collection.map((item) => {
       const clickUrl = () => {
+        const topicUrl = setting.moblieFirst ? item.newsArray[0].mobileUrl : item.newsArray[0].url;
         switch (this.props.category) {
           case 'topic':
-            const topicUrl = this.props.setting.moblieFirst ? item.newsArray[0].mobileUrl : item.newsArray[0].url;
             return topicUrl;
           case 'news':
             return item.url;
           case 'tech':
+            return item.url;
+          default:
             return item.url;
         }
       };
       const setCurrentUrlAction = () => {
         switch (this.props.category) {
           case 'topic':
-            return this.props.setCurrentUrl(clickUrl()) && this.props.setTopicTotalUrls(item.newsArray);
+            return this.props.setCurrentUrl(clickUrl())
+              && this.props.setTopicTotalUrls(item.newsArray);
           case 'news':
             return this.props.setCurrentUrl(clickUrl());
           case 'tech':
             return this.props.setCurrentUrl(clickUrl());
+          default:
+            return this.props.setCurrentUrl(clickUrl());
         }
       };
       return (
-        <div key={key}>
+        <div>
           <ListItem
             button
             className={styles.collectionItem}
@@ -62,7 +71,7 @@ export default class Collection extends Component {
             onClick={() => { setCurrentUrlAction(); }}
           >
 
-            <ListItemText primary={item.title} secondary={this.props.setting.simpleMode ? '' : item.summary} />
+            <ListItemText primary={item.title} secondary={setting.simpleMode ? '' : item.summary} />
           </ListItem>
           <div className={`${styles.fromNow}`} data-tid="fromNow">
             <span>{item.siteName}</span>
@@ -97,15 +106,16 @@ export default class Collection extends Component {
         </div>
 
         <div className={styles.list} data-tid="list">
-          <div className={styles.collection} data-tid="collection" >
+          <div className={styles.collection} data-tid="collection">
             <Scrollbars
 
               ref={(c) => { this.scrollBars = c; }}
               autoHide
               style={{ width: 280 }}
-              onScroll={(e) => {
-                if (~~this.getScrollTop >= ~~(this.getScrollHeight - this.getClientHeight)) {
-                  const hasScroll = false;
+              onScroll={() => {
+                if (parseFloat(this.getScrollTop) >=
+                  parseFloat(this.getScrollHeight - this.getClientHeight)) {
+                  // const hasScroll = false;
                   if (!this.state.hasScroll) {
                     this.props.loadMoreList();
                     this.setState({ hasScroll: true });
@@ -125,13 +135,25 @@ export default class Collection extends Component {
             </Scrollbars>
 
           </div>
-        </div >
-        {/* <div className={`${this.props.loading ? '' : 'hide'} ${styles.loading}`} data-tid="loading">
-          <CircularProgress size={50} />
-        </div> */}
-
-      </div >
-
+        </div>
+      </div>
     );
   }
 }
+Collection.propTypes = {
+  initList: PropTypes.func.isRequired,
+  fetchLatestCollection: PropTypes.func.isRequired,
+  setCurrentUrl: PropTypes.func.isRequired,
+  setTopicTotalUrls: PropTypes.func.isRequired,
+  lastCursor: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
+  setting: PropTypes.shape({
+    moblieFirst: PropTypes.bool,
+    simpleMode: PropTypes.bool
+  }).isRequired,
+  count: PropTypes.number.isRequired,
+  loadMoreList: PropTypes.bool.isRequired,
+  moreLoading: PropTypes.bool.isRequired,
+  collection: PropTypes.shape().isRequired
+
+};
