@@ -1,0 +1,44 @@
+.readCotent {
+  flex: 1 1 calc(100% - 281px);
+  background: rgb(254, 254, 254);
+  position: relative;
+  border-left: 1px solid #eee;
+}
+
+.toolsBar {
+  width: calc(100% - 30px);
+  height: 55px;
+  text-align: right;
+  padding: 0 15px;
+  color: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid #eee;
+}
+
+.webviewContent {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  
+  overflow: hidden;
+}
+.views{
+  padding: 5px 10px;
+  width: calc(100% - 20px);
+  height: 100%;
+}
+
+.loading.hide {
+  display: none;
+
+}
+.totalUrls >div{
+  
+}
+.totalUrlsCotent{
+  max-width: 300px;
+}

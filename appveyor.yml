@@ -1,0 +1,53 @@
+os: unstable
+
+environment:
+  matrix:
+    - nodejs_version: 8
+    - nodejs_version: 7  
+  GH_TOKEN:
+    secure: Ad5P+gF38GROwzZkCHEIz0NnAD6ofwd/pqaByeIrxnzIRKWiQx4HXjhvD99O8FBM
+cache:
+  - node_modules -> package.json
+  - app/node_modules -> app/package.json
+
+# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
+# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
+#
+# cache:
+#   - "%LOCALAPPDATA%/Yarn"
+
+matrix:
+  fast_finish: true
+
+# build: off
+build_script:
+  - yarn package
+
+version: '{build}'
+
+shallow_clone: true
+
+clone_depth: 1
+
+# install:
+#   - ps: Install-Product node $env:nodejs_version
+#   - set CI=true
+#   - npm install -g npm@latest
+#   - set PATH=%APPDATA%\npm;%PATH%
+#   - npm install
+
+# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
+# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
+#
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - set CI=true
+  - yarn
+  - cd app && yarn
+
+test_script:
+  - node --version
+  - npm run lint
+  - npm run test
+  - npm run test-e2e
+  - npm run package
