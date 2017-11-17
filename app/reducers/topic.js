@@ -46,16 +46,18 @@ export default function topic(state: TopicStateType = initialState, action: acti
         ...state,
         loading: action.payload.loading
       };
-
     case GET_TOPIC_INIT_SUCCESS:
       const Collection = [];
-      action.payload.collection.map((item, key) => Collection.push(item));
+      action.payload.collection.map((item) => Collection.push(item));
       return {
         ...state,
         collection: Collection,
         loading: action.payload.loading
       };
-
+    case GET_TOPIC_INIT_FAILURE:
+      return {
+        ...state
+      };
     // more list
     case GET_TOPIC_MORE_REQUEST:
       return {
@@ -64,11 +66,15 @@ export default function topic(state: TopicStateType = initialState, action: acti
       };
     case GET_TOPIC_MORE_SUCCESS:
       const MoreCollection = state.collection;
-      action.payload.collection.map((item, key) => MoreCollection.push(item));
+      action.payload.collection.map((item) => MoreCollection.push(item));
       return {
         ...state,
         collection: MoreCollection,
         moreLoading: action.payload.moreLoading
+      };
+    case GET_TOPIC_MORE_FAILURE:
+      return {
+        ...state
       };
     case SET_TOPIC_LAST_CURSOR:
       return {

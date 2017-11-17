@@ -1,5 +1,6 @@
 // @flow
 import { REHYDRATE } from 'redux-persist/constants';
+import Log from 'electron-log';
 import {
   SET_SIMPLE_LIST_MODE,
   SET_MOBILE_URL_MODE,
@@ -7,8 +8,9 @@ import {
   SET_NIGNTVIEW_MODE,
   SET_DISABLED_JAVASCRIPT
 } from '../actions/setting.js';
-import Log from 'electron-log';
-const localstorage = localStorage.getItem('reduxPersist:setting');
+
+
+const localstorage = window.localStorage.getItem('reduxPersist:setting');
 
 const localStore = JSON.parse(localstorage);
 
@@ -74,8 +76,8 @@ export default function topic(state: SettingStateType = initialState, action: ac
       };
     case REHYDRATE:
       var incoming = action.payload.myReducer;
-      if (incoming) return { ...state, ...incoming, specialKey: processSpecial(incoming.specialKey) };
-      return state;
+      // if (incoming) return { ...state, ...incoming, specialKey: processSpecial(incoming.specialKey) };
+      return { ...state, ...incoming };
     default:
       return state;
   }

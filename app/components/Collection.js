@@ -7,6 +7,7 @@ import { CircularProgress } from 'material-ui/Progress';
 import { IconButton, Badge } from 'material-ui';
 
 import styles from './Collection.css';
+
 Moment.locale('zh-CN');
 
 export default class Collection extends Component {
@@ -56,7 +57,8 @@ export default class Collection extends Component {
         <div key={key}>
           <ListItem
             button
-            className={styles.collectionItem} data-tid="collectionItem"
+            className={styles.collectionItem}
+            data-tid="collectionItem"
             onClick={() => { setCurrentUrlAction(); }}
           >
 
@@ -78,7 +80,8 @@ export default class Collection extends Component {
 
         <div className={` ${styles.toolbar}`} data-tid="toolbar">
           <IconButton
-            color="default" aria-label="refresh"
+            color="default"
+            aria-label="refresh"
             onClick={this.handlerRefresh.bind(this)}
           >
             <Badge

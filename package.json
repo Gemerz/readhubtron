@@ -27,8 +27,7 @@
     "package": "npm run build && build --publish onTagOrDraft",
     "package-win": "npm run build && build --win --x64",
     "package-linux": "npm run build && build --linux",
-    "package-all": "npm run build && build -mwl",
-    "to-download": "rsync  --progress  -avzh -e 'ssh -p 8118' ./release/ webadmin@node.gemer.xyz:/home/webadmin/www/download.gemer.xyz/soucre/readhubtron/release/"
+    "package-all": "npm run build && build -mwl"
   },
   "browserslist": "electron 1.8",
   "build": {
@@ -102,7 +101,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "git@bitbucket.org:gemerz/readhubtron.git",
+  "homepage": "https://github.com/Gemerz/readhubtron",
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/fileMock.js",
@@ -216,7 +215,7 @@
     "react-simple-dropdown": "^3.0.0",
     "react-tooltip": "^3.3.0",
     "redux": "^3.6.0",
-    "redux-persist": "^4.8.2",
+    "redux-persist": "^4.10.2",
     "redux-thunk": "^2.2.0",
     "source-map-support": "^0.4.15"
   },

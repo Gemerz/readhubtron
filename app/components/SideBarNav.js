@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { ipcRenderer } from 'electron';
@@ -13,7 +13,7 @@ class SideBarNav extends Component {
 
   render() {
     const { dispatch } = this.props;
-    const currentTabName = this.props.router.location.pathname.split('/').pop().trim()
+    const currentTabName = this.props.router.location.pathname.split('/').pop().trim();
     // if (currentTabName.length == 0) {
     //   currentTabName = 'topic'
     // }
@@ -31,21 +31,21 @@ class SideBarNav extends Component {
     return (
       <div className="sidebar">
         <nav className="">
-          <a className={`item ${(currentTabName == 'topic' || currentTabName.length ==0 ) ? 'current' : ''}`} onClick={() => { dispatch(push('/topic')); }}>
+          <a className={`item ${(currentTabName === 'topic' || currentTabName.length === 0) ? 'current' : ''}`} onClick={() => { dispatch(push('/topic')); }}>
             <IconButton color="contrast" aria-label="refresh">
               <img src={Fire} alt="Fire" />
             </IconButton>
             <span className="nav-label">热门话题</span>
           </a>
 
-          <a className={`item ${currentTabName == 'news' ? 'current' : ''}`} onClick={() => { dispatch(push('/news')); }}>
+          <a className={`item ${currentTabName === 'news' ? 'current' : ''}`} onClick={() => { dispatch(push('/news')); }}>
             <IconButton color="contrast" aria-label="refresh">
               <img src={Trend} alt="Trend" />
             </IconButton>
             <span className="nav-label">科技动态</span>
           </a>
 
-          <a className={`item ${currentTabName == 'tech' ? 'current' : ''}`} onClick={() => { dispatch(push('/tech')); }}>
+          <a className={`item ${currentTabName === 'tech' ? 'current' : ''}`} onClick={() => { dispatch(push('/tech')); }}>
             <IconButton color="contrast" aria-label="refresh">
               <img src={Developer} alt="Developer" />
             </IconButton>

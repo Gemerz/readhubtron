@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import type { Children } from 'react';
-import { MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
-
-import {cyan, teal} from 'material-ui/colors'
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { cyan, teal } from 'material-ui/colors';
 import SideBarNav from '../components/SideBarNav';
 
 

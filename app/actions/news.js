@@ -1,6 +1,5 @@
 // @flow
 import Moment from 'moment';
-// import type { NewsStateType } from '../reducers/news';
 import { checkHttpStatus, parseJSON } from '../utils';
 
 type actionType = {

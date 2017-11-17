@@ -11,9 +11,7 @@ function setup(initialState) {
   const history = createBrowserHistory();
   const app = mount(
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <CounterPage />
-      </ConnectedRouter>
+      <ConnectedRouter history={history} />
     </Provider>
   );
   return {

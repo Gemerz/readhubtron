@@ -1,11 +1,5 @@
 // @flow
-// import type { SettingStateType } from '../reducers/setting';
-import { checkHttpStatus, parseJSON } from '../utils';
 
-type actionType = {
-  type: string,
-  payload: any
-};
 export const SET_SIMPLE_LIST_MODE = 'setting/SET_SIMPLE_LIST_MODE';
 export const SET_MOBILE_URL_MODE = 'setting/SET_MOBILE_URL_MODE';
 export const SET_NOTIFACATION = 'setting/SET_NOTIFACATION';
