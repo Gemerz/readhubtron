@@ -1,13 +1,11 @@
 os: unstable
 platform:
   - x64
-  
+
 environment:
   matrix:
     - nodejs_version: 8
     - nodejs_version: 7  
-  GH_TOKEN:
-    secure: Ad5P+gF38GROwzZkCHEIz0NnAD6ofwd/pqaByeIrxnzIRKWiQx4HXjhvD99O8FBM
 
 cache:
   - "%LOCALAPPDATA%/Yarn"
