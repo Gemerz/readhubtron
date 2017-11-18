@@ -1,11 +1,11 @@
-// import counter from '../../app/reducers/counter';
+import topic from '../../app/reducers/topic';
 // import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../../app/actions/counter';
 
 describe('reducers', () => {
-  describe('counter', () => {
-    // it('should handle initial state', () => {
-    //   expect(counter(undefined, {})).toMatchSnapshot();
-    // });
+  describe('topic', () => {
+    it('should handle initial state', () => {
+      expect(topic(undefined, {})).toMatchSnapshot();
+    });
     // it('should handle INCREMENT_COUNTER', () => {
     //   expect(counter(1, { type: INCREMENT_COUNTER })).toMatchSnapshot();
     // });

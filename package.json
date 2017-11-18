@@ -116,7 +116,10 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
