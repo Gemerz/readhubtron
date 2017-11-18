@@ -231,6 +231,7 @@ export default merge.smart(baseConfig, {
     contentBase: path.join(__dirname, 'dist'),
     watchOptions: {
       aggregateTimeout: 300,
+      ignored: /node_modules/,
       poll: 100
     },
     historyApiFallback: {
@@ -239,6 +240,7 @@ export default merge.smart(baseConfig, {
     },
     setup() {
       if (process.env.START_HOT) {
+        console.log('Staring Main Process...');
         spawn(
           'npm',
           ['run', 'start-hot-renderer'],

@@ -1,0 +1,637 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection component should render component 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div
+    className="listCotent"
+    data-tid="listCotent"
+>
+    <div
+        className=" toolbar"
+        data-tid="toolbar"
+    >
+        <withStyles(IconButton)
+            aria-label="refresh"
+            color="default"
+            onClick={[Function]}
+        >
+            <withStyles(Badge)
+                badgeContent={3}
+                className=" refreshBadge"
+                color="primary"
+                data-tid="refreshBadge"
+            >
+                <i
+                    aria-hidden="true"
+                    className="fa fa-refresh"
+                />
+            </withStyles(Badge)>
+        </withStyles(IconButton)>
+    </div>
+    <div
+        className="list"
+        data-tid="list"
+    >
+        <div
+            className="collection"
+            data-tid="collection"
+        >
+            <Scrollbars
+                autoHeight={false}
+                autoHeightMax={200}
+                autoHeightMin={0}
+                autoHide={true}
+                autoHideDuration={200}
+                autoHideTimeout={1000}
+                hideTracksWhenNotNeeded={false}
+                onScroll={[Function]}
+                renderThumbHorizontal={[Function]}
+                renderThumbVertical={[Function]}
+                renderTrackHorizontal={[Function]}
+                renderTrackVertical={[Function]}
+                renderView={[Function]}
+                style={
+                    Object {
+                        "width": 280,
+                      }
+                }
+                tagName="div"
+                thumbMinSize={30}
+                universal={false}
+            >
+                <withStyles(List)
+                    className="collection-list"
+                >
+                    <div>
+                        <withStyles(ListItem)
+                            button={true}
+                            className="collectionItem collection-item"
+                            data-tid="collectionItem"
+                            onClick={[Function]}
+                        >
+                            <withStyles(ListItemText)
+                                primary={undefined}
+                                secondary=""
+                            />
+                        </withStyles(ListItem)>
+                        <div
+                            className="fromNow"
+                            data-tid="fromNow"
+                        >
+                            <span />
+                            <span>
+                                 
+                                几秒前
+                            </span>
+                        </div>
+                        <withStyles(Divider)
+                            light={true}
+                        />
+                    </div>
+                    <div>
+                        <withStyles(ListItem)
+                            button={true}
+                            className="collectionItem collection-item"
+                            data-tid="collectionItem"
+                            onClick={[Function]}
+                        >
+                            <withStyles(ListItemText)
+                                primary={undefined}
+                                secondary=""
+                            />
+                        </withStyles(ListItem)>
+                        <div
+                            className="fromNow"
+                            data-tid="fromNow"
+                        >
+                            <span />
+                            <span>
+                                 
+                                几秒前
+                            </span>
+                        </div>
+                        <withStyles(Divider)
+                            light={true}
+                        />
+                    </div>
+                </withStyles(List)>
+                <div
+                    className="hide loadmore"
+                    data-tid="loadmore"
+                >
+                    <withStyles(CircularProgress)
+                        size={20}
+                    />
+                </div>
+            </Scrollbars>
+        </div>
+    </div>
+</div>,
+  "nodes": Array [
+    <div
+      className="listCotent"
+      data-tid="listCotent"
+>
+      <div
+            className=" toolbar"
+            data-tid="toolbar"
+      >
+            <withStyles(IconButton)
+                  aria-label="refresh"
+                  color="default"
+                  onClick={[Function]}
+            >
+                  <withStyles(Badge)
+                        badgeContent={3}
+                        className=" refreshBadge"
+                        color="primary"
+                        data-tid="refreshBadge"
+                  >
+                        <i
+                              aria-hidden="true"
+                              className="fa fa-refresh"
+                        />
+                  </withStyles(Badge)>
+            </withStyles(IconButton)>
+      </div>
+      <div
+            className="list"
+            data-tid="list"
+      >
+            <div
+                  className="collection"
+                  data-tid="collection"
+            >
+                  <Scrollbars
+                        autoHeight={false}
+                        autoHeightMax={200}
+                        autoHeightMin={0}
+                        autoHide={true}
+                        autoHideDuration={200}
+                        autoHideTimeout={1000}
+                        hideTracksWhenNotNeeded={false}
+                        onScroll={[Function]}
+                        renderThumbHorizontal={[Function]}
+                        renderThumbVertical={[Function]}
+                        renderTrackHorizontal={[Function]}
+                        renderTrackVertical={[Function]}
+                        renderView={[Function]}
+                        style={
+                              Object {
+                                    "width": 280,
+                                  }
+                        }
+                        tagName="div"
+                        thumbMinSize={30}
+                        universal={false}
+                  >
+                        <withStyles(List)
+                              className="collection-list"
+                        >
+                              <div>
+                                    <withStyles(ListItem)
+                                          button={true}
+                                          className="collectionItem collection-item"
+                                          data-tid="collectionItem"
+                                          onClick={[Function]}
+                                    >
+                                          <withStyles(ListItemText)
+                                                primary={undefined}
+                                                secondary=""
+                                          />
+                                    </withStyles(ListItem)>
+                                    <div
+                                          className="fromNow"
+                                          data-tid="fromNow"
+                                    >
+                                          <span />
+                                          <span>
+                                                 
+                                                几秒前
+                                          </span>
+                                    </div>
+                                    <withStyles(Divider)
+                                          light={true}
+                                    />
+                              </div>
+                              <div>
+                                    <withStyles(ListItem)
+                                          button={true}
+                                          className="collectionItem collection-item"
+                                          data-tid="collectionItem"
+                                          onClick={[Function]}
+                                    >
+                                          <withStyles(ListItemText)
+                                                primary={undefined}
+                                                secondary=""
+                                          />
+                                    </withStyles(ListItem)>
+                                    <div
+                                          className="fromNow"
+                                          data-tid="fromNow"
+                                    >
+                                          <span />
+                                          <span>
+                                                 
+                                                几秒前
+                                          </span>
+                                    </div>
+                                    <withStyles(Divider)
+                                          light={true}
+                                    />
+                              </div>
+                        </withStyles(List)>
+                        <div
+                              className="hide loadmore"
+                              data-tid="loadmore"
+                        >
+                              <withStyles(CircularProgress)
+                                    size={20}
+                              />
+                        </div>
+                  </Scrollbars>
+            </div>
+      </div>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Collection
+        category="topic"
+        collection={
+                Array [
+                        Object {
+                          "id": "1",
+                        },
+                        Object {
+                          "id": "2",
+                        },
+                      ]
+        }
+        count={3}
+        fetchLatestCollection={[Function]}
+        initList={[Function]}
+        lastCursor={2011}
+        loadMoreList={[Function]}
+        moreLoading={false}
+        setCurrentUrl={[Function]}
+        setTopicTotalUrls={null}
+        setting={
+                Object {
+                        "moblieFirst": true,
+                        "simpleMode": true,
+                      }
+        }
+/>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Collection {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "category": "topic",
+          "collection": Array [
+            Object {
+              "id": "1",
+            },
+            Object {
+              "id": "2",
+            },
+          ],
+          "count": 3,
+          "fetchLatestCollection": [Function],
+          "initList": [Function],
+          "lastCursor": 2011,
+          "loadMoreList": [Function],
+          "moreLoading": false,
+          "setCurrentUrl": [Function],
+          "setTopicTotalUrls": null,
+          "setting": Object {
+            "moblieFirst": true,
+            "simpleMode": true,
+          },
+        },
+        "refs": Object {},
+        "state": Object {
+          "hasScroll": false,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div
+          className="listCotent"
+          data-tid="listCotent"
+>
+          <div
+                    className=" toolbar"
+                    data-tid="toolbar"
+          >
+                    <withStyles(IconButton)
+                              aria-label="refresh"
+                              color="default"
+                              onClick={[Function]}
+                    >
+                              <withStyles(Badge)
+                                        badgeContent={3}
+                                        className=" refreshBadge"
+                                        color="primary"
+                                        data-tid="refreshBadge"
+                              >
+                                        <i
+                                                  aria-hidden="true"
+                                                  className="fa fa-refresh"
+                                        />
+                              </withStyles(Badge)>
+                    </withStyles(IconButton)>
+          </div>
+          <div
+                    className="list"
+                    data-tid="list"
+          >
+                    <div
+                              className="collection"
+                              data-tid="collection"
+                    >
+                              <Scrollbars
+                                        autoHeight={false}
+                                        autoHeightMax={200}
+                                        autoHeightMin={0}
+                                        autoHide={true}
+                                        autoHideDuration={200}
+                                        autoHideTimeout={1000}
+                                        hideTracksWhenNotNeeded={false}
+                                        onScroll={[Function]}
+                                        renderThumbHorizontal={[Function]}
+                                        renderThumbVertical={[Function]}
+                                        renderTrackHorizontal={[Function]}
+                                        renderTrackVertical={[Function]}
+                                        renderView={[Function]}
+                                        style={
+                                                  Object {
+                                                            "width": 280,
+                                                          }
+                                        }
+                                        tagName="div"
+                                        thumbMinSize={30}
+                                        universal={false}
+                              >
+                                        <withStyles(List)
+                                                  className="collection-list"
+                                        >
+                                                  <div>
+                                                            <withStyles(ListItem)
+                                                                      button={true}
+                                                                      className="collectionItem collection-item"
+                                                                      data-tid="collectionItem"
+                                                                      onClick={[Function]}
+                                                            >
+                                                                      <withStyles(ListItemText)
+                                                                                primary={undefined}
+                                                                                secondary=""
+                                                                      />
+                                                            </withStyles(ListItem)>
+                                                            <div
+                                                                      className="fromNow"
+                                                                      data-tid="fromNow"
+                                                            >
+                                                                      <span />
+                                                                      <span>
+                                                                                 
+                                                                                几秒前
+                                                                      </span>
+                                                            </div>
+                                                            <withStyles(Divider)
+                                                                      light={true}
+                                                            />
+                                                  </div>
+                                                  <div>
+                                                            <withStyles(ListItem)
+                                                                      button={true}
+                                                                      className="collectionItem collection-item"
+                                                                      data-tid="collectionItem"
+                                                                      onClick={[Function]}
+                                                            >
+                                                                      <withStyles(ListItemText)
+                                                                                primary={undefined}
+                                                                                secondary=""
+                                                                      />
+                                                            </withStyles(ListItem)>
+                                                            <div
+                                                                      className="fromNow"
+                                                                      data-tid="fromNow"
+                                                            >
+                                                                      <span />
+                                                                      <span>
+                                                                                 
+                                                                                几秒前
+                                                                      </span>
+                                                            </div>
+                                                            <withStyles(Divider)
+                                                                      light={true}
+                                                            />
+                                                  </div>
+                                        </withStyles(List)>
+                                        <div
+                                                  className="hide loadmore"
+                                                  data-tid="loadmore"
+                                        >
+                                                  <withStyles(CircularProgress)
+                                                            size={20}
+                                                  />
+                                        </div>
+                              </Scrollbars>
+                    </div>
+          </div>
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div
+          className="listCotent"
+          data-tid="listCotent"
+>
+          <div
+                    className=" toolbar"
+                    data-tid="toolbar"
+          >
+                    <withStyles(IconButton)
+                              aria-label="refresh"
+                              color="default"
+                              onClick={[Function]}
+                    >
+                              <withStyles(Badge)
+                                        badgeContent={3}
+                                        className=" refreshBadge"
+                                        color="primary"
+                                        data-tid="refreshBadge"
+                              >
+                                        <i
+                                                  aria-hidden="true"
+                                                  className="fa fa-refresh"
+                                        />
+                              </withStyles(Badge)>
+                    </withStyles(IconButton)>
+          </div>
+          <div
+                    className="list"
+                    data-tid="list"
+          >
+                    <div
+                              className="collection"
+                              data-tid="collection"
+                    >
+                              <Scrollbars
+                                        autoHeight={false}
+                                        autoHeightMax={200}
+                                        autoHeightMin={0}
+                                        autoHide={true}
+                                        autoHideDuration={200}
+                                        autoHideTimeout={1000}
+                                        hideTracksWhenNotNeeded={false}
+                                        onScroll={[Function]}
+                                        renderThumbHorizontal={[Function]}
+                                        renderThumbVertical={[Function]}
+                                        renderTrackHorizontal={[Function]}
+                                        renderTrackVertical={[Function]}
+                                        renderView={[Function]}
+                                        style={
+                                                  Object {
+                                                            "width": 280,
+                                                          }
+                                        }
+                                        tagName="div"
+                                        thumbMinSize={30}
+                                        universal={false}
+                              >
+                                        <withStyles(List)
+                                                  className="collection-list"
+                                        >
+                                                  <div>
+                                                            <withStyles(ListItem)
+                                                                      button={true}
+                                                                      className="collectionItem collection-item"
+                                                                      data-tid="collectionItem"
+                                                                      onClick={[Function]}
+                                                            >
+                                                                      <withStyles(ListItemText)
+                                                                                primary={undefined}
+                                                                                secondary=""
+                                                                      />
+                                                            </withStyles(ListItem)>
+                                                            <div
+                                                                      className="fromNow"
+                                                                      data-tid="fromNow"
+                                                            >
+                                                                      <span />
+                                                                      <span>
+                                                                                 
+                                                                                几秒前
+                                                                      </span>
+                                                            </div>
+                                                            <withStyles(Divider)
+                                                                      light={true}
+                                                            />
+                                                  </div>
+                                                  <div>
+                                                            <withStyles(ListItem)
+                                                                      button={true}
+                                                                      className="collectionItem collection-item"
+                                                                      data-tid="collectionItem"
+                                                                      onClick={[Function]}
+                                                            >
+                                                                      <withStyles(ListItemText)
+                                                                                primary={undefined}
+                                                                                secondary=""
+                                                                      />
+                                                            </withStyles(ListItem)>
+                                                            <div
+                                                                      className="fromNow"
+                                                                      data-tid="fromNow"
+                                                            >
+                                                                      <span />
+                                                                      <span>
+                                                                                 
+                                                                                几秒前
+                                                                      </span>
+                                                            </div>
+                                                            <withStyles(Divider)
+                                                                      light={true}
+                                                            />
+                                                  </div>
+                                        </withStyles(List)>
+                                        <div
+                                                  className="hide loadmore"
+                                                  data-tid="loadmore"
+                                        >
+                                                  <withStyles(CircularProgress)
+                                                            size={20}
+                                                  />
+                                        </div>
+                              </Scrollbars>
+                    </div>
+          </div>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Collection
+    category="topic"
+    collection={
+        Array [
+            Object {
+              "id": "1",
+            },
+            Object {
+              "id": "2",
+            },
+          ]
+    }
+    count={3}
+    fetchLatestCollection={[Function]}
+    initList={[Function]}
+    lastCursor={2011}
+    loadMoreList={[Function]}
+    moreLoading={false}
+    setCurrentUrl={[Function]}
+    setTopicTotalUrls={null}
+    setting={
+        Object {
+            "moblieFirst": true,
+            "simpleMode": true,
+          }
+    }
+/>,
+}
+`;

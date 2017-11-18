@@ -35,7 +35,7 @@ export default class Collection extends Component {
   }
   renderNewCollection() {
     const { collection, setting } = this.props;
-    return collection.map((item, index) => {
+    return collection.map((item) => {
       const clickUrl = () => {
         const topicUrl = setting.moblieFirst ? item.newsArray[0].mobileUrl : item.newsArray[0].url;
         switch (this.props.category) {
@@ -63,10 +63,10 @@ export default class Collection extends Component {
         }
       };
       return (
-        <div key={index}>
+        <div key={item.id}>
           <ListItem
             button
-            className={styles.collectionItem}
+            className={`${styles.collectionItem} collection-item`}
             data-tid="collectionItem"
             onClick={() => { setCurrentUrlAction(); }}
           >
@@ -108,7 +108,6 @@ export default class Collection extends Component {
         <div className={styles.list} data-tid="list">
           <div className={styles.collection} data-tid="collection">
             <Scrollbars
-
               ref={(c) => { this.scrollBars = c; }}
               autoHide
               style={{ width: 280 }}
@@ -126,7 +125,7 @@ export default class Collection extends Component {
                 }
               }}
             >
-              <List>
+              <List className="collection-list">
                 {this.renderNewCollection()}
               </List>
               <div className={`${this.props.moreLoading ? '' : 'hide'} ${styles.loadmore}`} data-tid="loadmore">
