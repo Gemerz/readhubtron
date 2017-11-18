@@ -75,7 +75,7 @@ export function checkTechLatest(count: number) {
 
 
 export function initTech() {
-  return (dispatch: (action: actionType) => void, getState: () => TechStateType) => {
+  return (dispatch: (action: actionType) => void) => {
     const API = `https://api.readhub.me/technews?&pageSize=10&lastCursor=${Moment().valueOf()}`;
     dispatch(getTechRequest());
     fetch(API, {
@@ -94,6 +94,10 @@ export function initTech() {
           dispatch(setTechlastCursor(lastCursor));
           dispatch(setTechCurrentUrl(response.data[0].url));
         }
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }
@@ -116,12 +120,16 @@ export function loadMoreTech() {
         .then(parseJSON)
         .then(response => {
           dispatch(getTechMoreSuccess(response.data));
+          return Promise.resolve(response);
+        })
+        .catch((e) => {
+          console.log('Oops, error', e);
         });
     }, 500);
   };
 }
 export function fetchLatestCollection(lastCursor: number) {
-  return (dispatch: (action: actionType) => void, getState: () => TechStateType) => {
+  return (dispatch: (action: actionType) => void) => {
     const API = ` https://api.readhub.me/topic/newCount?latestCursor=${lastCursor}`;
     fetch(API, {
       method: 'get',
@@ -133,6 +141,10 @@ export function fetchLatestCollection(lastCursor: number) {
       .then(parseJSON)
       .then(response => {
         dispatch(checkTechLatest(response.count));
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }

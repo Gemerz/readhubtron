@@ -93,6 +93,10 @@ export function initNews() {
           dispatch(setNewslastCursor(lastCursor));
           dispatch(setNewsCurrentUrl(response.data[0].url));
         }
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }
@@ -115,6 +119,10 @@ export function loadMoreNews() {
         .then(parseJSON)
         .then(response => {
           dispatch(getNewsMoreSuccess(response.data));
+          return Promise.resolve(response);
+        })
+        .catch((e) => {
+          console.log('Oops, error', e);
         });
     }, 500);
   };
@@ -132,6 +140,10 @@ export function fetchLatestCollection(lastCursor: number) {
       .then(parseJSON)
       .then(response => {
         dispatch(checkNewsLatest(response.count));
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }

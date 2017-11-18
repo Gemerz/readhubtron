@@ -1,5 +1,4 @@
 // @flow
-import { push } from 'react-router-redux';
 // import type { TopicStateType } from '../reducers/topic';
 import { checkHttpStatus, parseJSON } from '../utils';
 
@@ -104,10 +103,15 @@ export function initTopic() {
         dispatch(getTopicSuccess(response.data));
         if (response.data[0].order) {
           dispatch(setTopiclastCursor(response.data[0].order));
-          const url = setting.moblieFirst ? response.data[0].newsArray[0].mobileUrl : response.data[0].newsArray[0].url;
+          const url = setting.moblieFirst ?
+            response.data[0].newsArray[0].mobileUrl : response.data[0].newsArray[0].url;
           dispatch(setTopicCurrentUrl(url));
           dispatch(setTopicTotalUrls(response.data[0].newsArray));
         }
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }
@@ -129,12 +133,16 @@ export function loadMoreTopic() {
         .then(parseJSON)
         .then(response => {
           dispatch(getTopicMoreSuccess(response.data));
+          return Promise.resolve(response);
+        })
+        .catch((e) => {
+          console.log('Oops, error', e);
         });
     }, 500);
   };
 }
 export function fetchLatestCollection(lastCursor: number) {
-  return (dispatch: (action: actionType) => void, getState: () => TopicStateType) => {
+  return (dispatch: (action: actionType) => void) => {
     const API = ` https://api.readhub.me/topic/newCount?latestCursor=${lastCursor}`;
     fetch(API, {
       method: 'get',
@@ -146,6 +154,10 @@ export function fetchLatestCollection(lastCursor: number) {
       .then(parseJSON)
       .then(response => {
         dispatch(checkTopicLatest(response.count));
+        return Promise.resolve(response);
+      })
+      .catch((e) => {
+        console.log('Oops, error', e);
       });
   };
 }
