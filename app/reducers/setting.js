@@ -1,5 +1,5 @@
 // @flow
-import { REHYDRATE } from 'redux-persist/constants';
+// import { REHYDRATE } from 'redux-persist/constants';
 import Log from 'electron-log';
 import {
   SET_SIMPLE_LIST_MODE,
@@ -46,7 +46,6 @@ const initialState: SettingStateType = {
 
 
 export default function topic(state: SettingStateType = initialState, action: actionType) {
-  const incoming = action.payload;
   switch (action.type) {
     // init list
     case SET_SIMPLE_LIST_MODE:
@@ -74,8 +73,9 @@ export default function topic(state: SettingStateType = initialState, action: ac
         ...state,
         disabledJavascript: action.payload.disabledJavascript
       };
-    case REHYDRATE:
-      return { ...state, ...incoming };
+    // case REHYDRATE:
+    //   console.log(REHYDRATE);
+    //   return { ...state, ...incoming };
     default:
       return state;
   }

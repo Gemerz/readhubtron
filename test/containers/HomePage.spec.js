@@ -25,7 +25,7 @@ describe('containers', () => {
   describe('App', () => {
     it('should display initial count', () => {
       const { app } = setup;
-      console.log(app)
+      console.log(app);
     });
   });
 });
