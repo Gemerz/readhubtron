@@ -37,16 +37,18 @@ export default class Collection extends Component {
     const { collection, setting } = this.props;
     return collection.map((item) => {
       const clickUrl = () => {
-        const topicUrl = setting.moblieFirst ? item.newsArray[0].mobileUrl : item.newsArray[0].url;
+        let topicUrl = '';
+        if (item.newsArray) { topicUrl = item.newsArray[0].mobileUrl ? item.newsArray[0].mobileUrl : ''; }
+        const singleUrl = setting.moblieFirst ? item.mobileUrl : item.url;
         switch (this.props.category) {
           case 'topic':
             return topicUrl;
           case 'news':
-            return item.url;
+            return singleUrl;
           case 'tech':
-            return item.url;
+            return singleUrl;
           default:
-            return item.url;
+            return topicUrl;
         }
       };
       const setCurrentUrlAction = () => {
