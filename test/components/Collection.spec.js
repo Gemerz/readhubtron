@@ -1,11 +1,10 @@
 import { spy } from 'sinon';
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
-import Moment from 'moment';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import renderer from 'react-test-renderer';
 import Collection from '../../app/components/Collection';
-import { Scrollbars } from 'react-custom-scrollbars';
+
 
 function setup() {
   const actions = {
@@ -26,7 +25,8 @@ function setup() {
         moblieFirst: true,
         simpleMode: true
       }}
-      {...actions} />);
+      {...actions}
+    />);
   return {
     component,
     actions,
@@ -44,10 +44,10 @@ describe('Collection component', () => {
   it('render list ', async () => {
     const { list } = setup();
     expect(list.length).toBe(2);
-
   });
+
   it(' scroll load more list ', async () => {
-    const { list, component, actions } = setup();
+    const { component, actions } = setup();
 
     window.dispatchEvent(new window.UIEvent('scroll', { detail: 1000 }));
     component.setState({ hasScroll: true });
@@ -65,5 +65,5 @@ describe('Collection component', () => {
     component.instance().props.fetchLatestCollection();
     expect(actions.initList.called).toBe(true);
     expect(actions.fetchLatestCollection.called).toBe(true);
-  })
+  });
 });
