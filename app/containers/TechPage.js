@@ -63,7 +63,7 @@ TechPage.propTypes = {
     disabledJavascript: PropTypes.bool.isRequired
   }).isRequired,
   tech: PropTypes.shape({
-    lastCursor: PropTypes.string,
+    lastCursor: PropTypes.number,
     count: PropTypes.number,
     category: PropTypes.string,
     collection: PropTypes.array,

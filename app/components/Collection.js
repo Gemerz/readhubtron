@@ -144,9 +144,9 @@ Collection.propTypes = {
   initList: PropTypes.func.isRequired,
   fetchLatestCollection: PropTypes.func.isRequired,
   setCurrentUrl: PropTypes.func.isRequired,
-  setTopicTotalUrls: PropTypes.func.isRequired,
   lastCursor: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
+  setTopicTotalUrls: PropTypes.func,
   setting: PropTypes.shape({
     moblieFirst: PropTypes.bool,
     simpleMode: PropTypes.bool
@@ -155,5 +155,9 @@ Collection.propTypes = {
   loadMoreList: PropTypes.func.isRequired,
   moreLoading: PropTypes.bool.isRequired,
   collection: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
-
 };
+
+Collection.defaultProps = {
+  setTopicTotalUrls: null
+};
+

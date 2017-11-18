@@ -65,13 +65,13 @@ NewsPage.propTypes = {
     disabledJavascript: PropTypes.bool.isRequired
   }).isRequired,
   news: PropTypes.shape({
-    lastCursor: PropTypes.string,
+    lastCursor: PropTypes.number,
     count: PropTypes.number,
     category: PropTypes.string,
     collection: PropTypes.array,
     loading: PropTypes.bool,
     moreLoading: PropTypes.bool,
-    totalUrls: PropTypes.array,
+    totalUrls: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     currentUrl: PropTypes.string
   }).isRequired
 };

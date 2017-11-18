@@ -22,6 +22,8 @@ export default class ReadView extends Component {
     open: false
 
   }
+
+
   componentDidMount() {
 
   }
@@ -127,11 +129,14 @@ export default class ReadView extends Component {
       </div >
     );
   }
-
-
 }
 ReadView.propTypes = {
-  totalUrls: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  totalUrls: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   currentUrl: PropTypes.string.isRequired,
-  disabledJavascript: PropTypes.bool.isRequired,
+  disabledJavascript: PropTypes.bool,
+};
+
+ReadView.defaultProps = {
+  totalUrls: [],
+  disabledJavascript: true
 };
