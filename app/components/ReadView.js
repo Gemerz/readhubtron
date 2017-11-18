@@ -131,7 +131,7 @@ export default class ReadView extends Component {
 
 }
 ReadView.propTypes = {
-  totalUrls: PropTypes.string.isRequired,
+  totalUrls: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   currentUrl: PropTypes.string.isRequired,
   disabledJavascript: PropTypes.bool.isRequired,
 };

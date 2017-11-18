@@ -10,7 +10,9 @@
     "node": true
   },
   "rules": {
-    "arrow-parens": ["off"],
+    "arrow-parens": [
+      "off"
+    ],
     "compat/compat": "error",
     "consistent-return": "off",
     "comma-dangle": "off",
@@ -25,11 +27,28 @@
     "promise/always-return": "error",
     "promise/catch-or-return": "error",
     "promise/no-native": "off",
-    "react/sort-comp": ["error", {
-      "order": ["type-annotations", "static-methods", "lifecycle", "everything-else", "render"]
-    }],
+    "react/sort-comp": [
+      "error",
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "render"
+        ]
+      }
+    ],
     "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
     "react/prefer-stateless-function": "off"
   },
   "plugins": [
@@ -43,7 +62,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "../webpack.config.eslint.js"
+        "config": "webpack.config.eslint.js"
       }
     }
   }

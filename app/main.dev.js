@@ -11,13 +11,14 @@
  * @flow
  */
 import { app, BrowserWindow, ipcMain, TouchBar } from 'electron';
-import path from 'path';
 import url from 'url';
+import path from 'path';
 import { autoUpdater } from 'electron-updater';
 import Log from 'electron-log';
 import Raven from 'raven-js';
 import sourceMapSupport from 'source-map-support';
 import MenuBuilder from './menu';
+
 
 let mainWindow: ?BrowserWindow = null;
 

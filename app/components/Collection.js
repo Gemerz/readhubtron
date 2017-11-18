@@ -35,7 +35,7 @@ export default class Collection extends Component {
   }
   renderNewCollection() {
     const { collection, setting } = this.props;
-    return collection.map((item) => {
+    return collection.map((item, index) => {
       const clickUrl = () => {
         const topicUrl = setting.moblieFirst ? item.newsArray[0].mobileUrl : item.newsArray[0].url;
         switch (this.props.category) {
@@ -63,7 +63,7 @@ export default class Collection extends Component {
         }
       };
       return (
-        <div>
+        <div key={index}>
           <ListItem
             button
             className={styles.collectionItem}
@@ -152,8 +152,8 @@ Collection.propTypes = {
     simpleMode: PropTypes.bool
   }).isRequired,
   count: PropTypes.number.isRequired,
-  loadMoreList: PropTypes.bool.isRequired,
+  loadMoreList: PropTypes.func.isRequired,
   moreLoading: PropTypes.bool.isRequired,
-  collection: PropTypes.shape().isRequired
+  collection: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
 
 };

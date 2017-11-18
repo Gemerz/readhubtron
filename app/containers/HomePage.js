@@ -82,13 +82,13 @@ HomePage.propTypes = {
     disabledJavascript: PropTypes.bool.isRequired
   }).isRequired,
   topic: PropTypes.shape({
-    lastCursor: PropTypes.string,
+    lastCursor: PropTypes.number,
     count: PropTypes.number,
     category: PropTypes.string,
-    collection: PropTypes.object,
+    collection: PropTypes.array,
     loading: PropTypes.bool,
     moreLoading: PropTypes.bool,
-    totalUrls: PropTypes.string,
+    totalUrls: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     currentUrl: PropTypes.string
   }).isRequired
 };

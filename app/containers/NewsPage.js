@@ -68,10 +68,10 @@ NewsPage.propTypes = {
     lastCursor: PropTypes.string,
     count: PropTypes.number,
     category: PropTypes.string,
-    collection: PropTypes.object,
+    collection: PropTypes.array,
     loading: PropTypes.bool,
     moreLoading: PropTypes.bool,
-    totalUrls: PropTypes.string,
+    totalUrls: PropTypes.array,
     currentUrl: PropTypes.string
   }).isRequired
 };

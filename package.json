@@ -143,7 +143,7 @@
     "cross-spawn": "^5.1.0",
     "css-loader": "^0.28.3",
     "devtron": "^1.4.0",
-    "electron": "^1.7.1",
+    "electron": "^1.8.1",
     "electron-builder": "^19.10.0",
     "electron-devtools-installer": "^2.2.0",
     "enzyme": "^2.8.2",
@@ -185,7 +185,7 @@
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.6.1",
+    "webpack": "^3.0.0",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
