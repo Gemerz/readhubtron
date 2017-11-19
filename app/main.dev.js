@@ -27,7 +27,7 @@ const { TouchBarButton, TouchBarSpacer } = TouchBar;
 // Reel labels
 const TopicButton = new TouchBarButton({
   label: ' 🎰 热门话题 ',
-  backgroundColor: '#dddddd',
+  backgroundColor: '#51555D',
   click: () => {
     console.log('click');
     mainWindow.webContents.send('touchbar-click-reply', 'topic');
@@ -35,7 +35,7 @@ const TopicButton = new TouchBarButton({
 });
 const NewsButton = new TouchBarButton({
   label: ' 🎰 科技动态 ',
-  backgroundColor: '#DCEDC5',
+  backgroundColor: '#51555D',
   click: () => {
     console.log('click');
     mainWindow.webContents.send('touchbar-click-reply', 'news');
@@ -43,20 +43,20 @@ const NewsButton = new TouchBarButton({
 });
 const TechButton = new TouchBarButton({
   label: ' 🎰 开发者资讯 ',
-  backgroundColor: '#DCEDC8',
+  backgroundColor: '#51555D',
   click: () => {
     console.log('click');
     mainWindow.webContents.send('touchbar-click-reply', 'tech');
   }
 });
 const touchBar = new TouchBar([
-  new TouchBarSpacer({ size: 'large' }),
+  new TouchBarSpacer({ size: 'small' }),
   TopicButton,
-  new TouchBarSpacer({ size: 'large' }),
+  new TouchBarSpacer({ size: 'small' }),
   NewsButton,
-  new TouchBarSpacer({ size: 'large' }),
+  new TouchBarSpacer({ size: 'small' }),
   TechButton,
-  new TouchBarSpacer({ size: 'large' }),
+  new TouchBarSpacer({ size: 'small' }),
 ]);
 
 ipcMain.removeAllListeners('ELECTRON_BROWSER_WINDOW_ALERT');

@@ -10,7 +10,6 @@ import {
 } from '../actions/setting';
 
 const localstorage = window.localStorage.getItem('reduxPersist:setting');
-
 const localStore = JSON.parse(localstorage);
 
 if (!localStore) {

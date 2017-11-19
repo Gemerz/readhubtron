@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers topic should handle initial state 1`] = `
+Object {
+  "category": "topic",
+  "collection": Array [],
+  "count": 0,
+  "currentUrl": "",
+  "lastCursor": 0,
+  "loading": false,
+  "moreLoading": false,
+  "totalUrls": Object {},
+}
+`;

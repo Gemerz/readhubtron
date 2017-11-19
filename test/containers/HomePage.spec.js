@@ -9,6 +9,7 @@ import { configureStore } from '../../app/store/configureStore';
 function setup(initialState) {
   const store = configureStore(initialState);
   const history = createBrowserHistory();
+
   const app = mount(
     <Provider store={store}>
       <ConnectedRouter history={history} >
@@ -16,6 +17,7 @@ function setup(initialState) {
       </ConnectedRouter>
     </Provider>
   );
+
   return {
     app
   };
@@ -25,7 +27,7 @@ describe('containers', () => {
   describe('App', () => {
     it('should display initial count', () => {
       const { app } = setup;
-      console.log(app);
+      expect(app).toMatchSnapshot();
     });
   });
 });
