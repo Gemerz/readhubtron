@@ -10,20 +10,16 @@ function setup(initialState) {
   const store = configureStore(initialState);
   const history = createBrowserHistory();
 
-  const actions = {
-    initTopic: spy() 
-  };
   const app = mount(
     <Provider store={store}>
       <ConnectedRouter history={history} >
-        <HomePage {...actions}/>
+        <HomePage />
       </ConnectedRouter>
     </Provider>
   );
- 
+
   return {
-    app,
-    actions
+    app
   };
 }
 
