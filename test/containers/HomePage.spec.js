@@ -9,15 +9,21 @@ import { configureStore } from '../../app/store/configureStore';
 function setup(initialState) {
   const store = configureStore(initialState);
   const history = createBrowserHistory();
+
+  const actions = {
+    initTopic: spy() 
+  };
   const app = mount(
     <Provider store={store}>
       <ConnectedRouter history={history} >
-        <HomePage />
+        <HomePage {...actions}/>
       </ConnectedRouter>
     </Provider>
   );
+ 
   return {
-    app
+    app,
+    actions
   };
 }
 
@@ -25,7 +31,7 @@ describe('containers', () => {
   describe('App', () => {
     it('should display initial count', () => {
       const { app } = setup;
-      console.log(app);
+      expect(app).toMatchSnapshot();
     });
   });
 });
