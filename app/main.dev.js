@@ -10,7 +10,7 @@
  *
  * @flow
  */
-import { app, BrowserWindow, ipcMain, TouchBar } from 'electron';
+import { app, shell, BrowserWindow, ipcMain, TouchBar } from 'electron';
 import url from 'url';
 import path from 'path';
 import { autoUpdater } from 'electron-updater';
@@ -19,17 +19,18 @@ import Raven from 'raven-js';
 import sourceMapSupport from 'source-map-support';
 import MenuBuilder from './menu';
 
-
-let mainWindow: ?BrowserWindow = null;
-
+type browserWindow = {
+  [key: string]: any
+};
+let mainWindow: browserWindow = {};
 const { TouchBarButton, TouchBarSpacer } = TouchBar;
-
 // Reel labels
 const TopicButton = new TouchBarButton({
   label: ' 🎰 热门话题 ',
   backgroundColor: '#51555D',
   click: () => {
     console.log('click');
+
     mainWindow.webContents.send('touchbar-click-reply', 'topic');
   }
 });
@@ -138,7 +139,7 @@ const createWindow = () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null;
+    mainWindow = {};
   });
   // // @TODO: Use 'ready-to-show' event
   // //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
@@ -212,7 +213,7 @@ app.on('ready', async () => {
 
   ipcMain.on('apply-open-url', (event, arg) => {
     console.log(arg);
-    require('electron').shell.openExternal(arg);
+    shell.openExternal(arg);
   });
 });
 app.on('activate', () => {
