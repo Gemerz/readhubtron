@@ -219,8 +219,7 @@ app.on('ready', async () => {
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-
-  if (Object.keys(mainWindow).length === 0 ) {
+  if (Object.keys(mainWindow).length === 0) {
     createWindow();
     mainWindow.setTouchBar(touchBar);
   }
