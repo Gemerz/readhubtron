@@ -1,7 +1,7 @@
 {
   "name": "readhubtron",
   "productName": "readhubtron",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "readhub.me client",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js",
