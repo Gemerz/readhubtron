@@ -2,7 +2,7 @@
 
 
 [![Build Status](https://travis-ci.org/Gemerz/readhubtron.svg?branch=master)](https://travis-ci.org/Gemerz/readhubtron) [![Build status](https://ci.appveyor.com/api/projects/status/w7xu78l3wym2ghxl/branch/develop?svg=true)](https://ci.appveyor.com/project/Gemerz/readhubtron/branch/master)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![Greenkeeper badge](https://badges.greenkeeper.io/Gemerz/readhubtron.svg)](https://greenkeeper.io/)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)]
 
 ![readtroncap_short](https://user-images.githubusercontent.com/3113374/32993360-d440c28a-cd91-11e7-8e09-483e36f0cb68.png)
